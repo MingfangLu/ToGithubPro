@@ -1,8 +1,10 @@
-package com.xianjiu.www.togithubproject;
+package com.xianjiu.www.togithubproject.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+
+import com.xianjiu.www.togithubproject.R;
 
 public class MainActivity extends AppCompatActivity {
 
