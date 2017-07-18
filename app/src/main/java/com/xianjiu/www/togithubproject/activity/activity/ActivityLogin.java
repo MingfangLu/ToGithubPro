@@ -3,7 +3,6 @@ package com.xianjiu.www.togithubproject.activity.activity;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.Toast;
-
 import com.xianjiu.www.togithubproject.R;
 
 
