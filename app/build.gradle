@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+def appName = "YouApp"
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -17,6 +17,69 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+        YouApp {
+
+        }
+
+        offline {
+            buildConfigField("boolean", "isOnline", "false")
+
+            // applicationIdSuffix ".offLine"//这里是在 applicationId 中添加了一个后缀
+            manifestPlaceholders = [app_icon          : "@drawable/icon",
+                                    app_name          : "${appName}-测试"]
+        }
+
+    }
+
+    // 针对所有的productFlavors在如下遍历
+    productFlavors.each {
+        flavor ->
+            //测试环境不做统一处理
+            if (flavor.name != "offline") {
+                flavor.manifestPlaceholders = [app_icon          : "@drawable/icon",
+                                               app_name          : "${appName}"]
+
+                flavor.buildConfigField("boolean", "isOnline", "true")
+            }
+    }
+
+    //重命名打包文件
+    android.applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def apk = output.outputFile;
+            def releaseTime = releaseTime();
+            def channelName = variant.productFlavors[0].name;
+            def newName = "YouApp_" + channelName + "_" + versionName + "_" + releaseTime;
+
+            output.outputFile = new File(apk.parent, newName + ".apk");
+        }
+    }
+
+    //删除 unligned 文件
+    android.applicationVariants.all { variant ->
+        variant.assemble.doLast {
+            variant.outputs.each { output ->
+                File unaligned = output.packageApplication.outputFile;
+                File aligned = output.outputFile
+                if (!unaligned.getName().equalsIgnoreCase(aligned.getName())) {
+                    println "deleting " + unaligned.getName()
+                    unaligned.delete()
+                }
+            }
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+//打包时间
+def releaseTime() {
+    return new Date().format("yyyyMMdd")
 }
 
 dependencies {
@@ -27,4 +90,9 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+    testCompile 'com.squareup.okhttp3:mockwebserver:3.8.1'
+    compile 'com.squareup.okhttp3:okhttp:3.8.1'
+    //Gson的需要的包
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.jakewharton:butterknife-compiler:8.4.0'
 }
