@@ -9,7 +9,7 @@ import com.xianjiu.www.togithubproject.R;
 /**
  * 登录界面
  */
-public class ActivityLogin extends BaseActivity {
+public class LoginActivity extends BaseActivity {
 
 
     @Override

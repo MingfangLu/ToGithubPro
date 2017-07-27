@@ -6,7 +6,7 @@ import android.os.Message;
 import android.view.View;
 
 import com.google.gson.Gson;
-import com.xianjiu.www.togithubproject.activity.activity.ActivityLogin;
+import com.xianjiu.www.togithubproject.activity.activity.LoginActivity;
 import com.xianjiu.www.togithubproject.activity.activity.BaseActivity;
 import com.xianjiu.www.togithubproject.activity.net.entity.BaseEntity;
 import com.xianjiu.www.togithubproject.activity.utile.AppUtils;
@@ -55,10 +55,10 @@ public class RequestFactory {
                 if (baseActivity != null) {
                     baseActivity.hidnLoadingView();
                     if (baseError.getErrorCode() == BaseError.STATUS_TOKEN_ERROR) {
-                        Intent intent = new Intent(baseActivity, ActivityLogin.class);
+                        Intent intent = new Intent(baseActivity, LoginActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         baseActivity.startActivity(intent);
-                        BaseAppManager.finishActivityExceptThis(ActivityLogin.class);
+                        BaseAppManager.finishActivityExceptThis(LoginActivity.class);
                     }
                 }
                 if (mHandler != null) {

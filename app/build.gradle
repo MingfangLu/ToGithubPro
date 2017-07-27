@@ -96,4 +96,5 @@ dependencies {
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.jakewharton:butterknife:8.7.0'
+    compile 'com.orhanobut:logger:2.1.1'
 }
