@@ -13,7 +13,6 @@ import butterknife.ButterKnife;
 
 /**
  * Created by $USER_NAME on 2017/7/18 001823:44
- * ${TODO}
  * lumf428@163.com
  */
 
