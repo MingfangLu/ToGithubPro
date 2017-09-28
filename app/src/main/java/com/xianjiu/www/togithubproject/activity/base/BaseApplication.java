@@ -2,6 +2,9 @@ package com.xianjiu.www.togithubproject.activity.base;
 
 import android.app.Application;
 import android.content.Context;
+
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 import com.xianjiu.www.togithubproject.activity.utile.LogUtil;
 
 public class BaseApplication extends Application {
@@ -22,6 +25,7 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         context = this.getApplicationContext();
+        Logger.addLogAdapter(new AndroidLogAdapter());
     }
 
     // 用作全局的 用来判断施工任务中是否已经有施工任务的拍照完成

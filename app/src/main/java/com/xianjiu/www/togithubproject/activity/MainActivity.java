@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         dataMap.put("map2","数据二");
         dataMap.put("map3","数据三");
         dataMap.put("map4","数据四");
-
-        Logger.d("test","怎么没反应的啊??");
+        Logger.d(dataMap);
     }
 }
