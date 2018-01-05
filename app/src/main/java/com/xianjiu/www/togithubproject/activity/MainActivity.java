@@ -3,10 +3,8 @@ package com.xianjiu.www.togithubproject.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
 import com.orhanobut.logger.Logger;
 import com.xianjiu.www.togithubproject.R;
-
 import java.util.HashMap;
 import java.util.Map;
 

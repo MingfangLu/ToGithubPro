@@ -371,44 +371,6 @@ public abstract class BaseActivity extends FragmentActivity implements OnClickLi
     }
 
     /**
-     * 登陆任务
-     */
-    //    public ExecuteListener loginTask = new ExecuteListener() {
-    //        @Override
-    //        public void pre(Message msg) {
-    //        }
-    //
-    //        @Override
-    //        public void success(Message resultMsg) {
-    //        }
-    //
-    //        @Override
-    //        public void failed(Message resultMsg) {
-    //        }
-    //
-    //        @Override
-    //        public void post(Message resultMsg) {
-    //
-    //        }
-    //
-    //        @Override
-    //        public Message doInBackground(Message msgError, Message msgSuccess, Message msg) {
-    //            try {
-    //                BaseResponse<LoginResponseData> response = mTaskCommand.login(mPrefManager.getUserName(),
-    //                        mPrefManager.getUserPassword());
-    //                if (ResponseStateUtil.judgeResponseState(response, responseHandler)) {
-    //                    msgSuccess.obj = response.getData();
-    //                    return msgSuccess;
-    //                }
-    //            } catch (Exception e) {
-    //                e.printStackTrace();
-    //                responseHandler.sendEmptyMessage(ResponseStateUtil.STATE_SERVER_RETURN_ERROR);
-    //            }
-    //            return msgError;
-    //        }
-    //    };
-
-    /**
      * ActionBar是否可见
      *
      * @return

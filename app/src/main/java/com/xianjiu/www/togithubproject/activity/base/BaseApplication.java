@@ -5,7 +5,6 @@ import android.content.Context;
 
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
-import com.xianjiu.www.togithubproject.activity.utile.LogUtil;
 
 public class BaseApplication extends Application {
     /**
@@ -25,32 +24,7 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         context = this.getApplicationContext();
+        // Logger 的打印数据
         Logger.addLogAdapter(new AndroidLogAdapter());
-    }
-
-    // 用作全局的 用来判断施工任务中是否已经有施工任务的拍照完成
-    private int    photoYesOrNotFlage;
-    private String id;
-
-    public int getPhotoYesOrNotFlage(String id) {
-        LogUtil.d("getPhotoYesOrNotFlage",id+"====id");
-//        LogUtil.d("getPhotoYesOrNotFlage",idStr+"====idStr");
-
-//        if (this.id == idStr) {
-        //
-        //        } else {
-        //            return 0;
-        //        }
-        if (id!=null){
-
-            return photoYesOrNotFlage;
-        }else {
-            return 0;
-        }
-    }
-
-    public void setPhotoYesOrNotFlage(String id, int photoYesOrNotFlage) {
-        this.id = id;
-        this.photoYesOrNotFlage = photoYesOrNotFlage;
     }
 }
